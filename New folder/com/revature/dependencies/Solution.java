@@ -45,13 +45,50 @@ public class Solution {
     ArrayList<Character> findDependencyOrder(ArrayList<Character> projects){
 
         ArrayList<Character> moreOutput = new ArrayList<>();
+        ArrayList<Character> itemsToRemove = new ArrayList<>();
 
         //first, find anything that has no dependencies but is a dependency itself
         for(Character c : projects){
-            for(int i=0; i<dependencies.size(); i++){
-
+            //isadependency && !hasadependency
+            if(isADependency(c) && !hasADependency(c)) {
+                moreOutput.add(c);
+                itemsToRemove.add(c);
             }
+
         }
+        projects.removeAll(itemsToRemove);
+        itemsToRemove.clear();
+        //System.out.println("findDependencyOrder Projects: " + projects);
+        //System.out.println("moreOutput: " + moreOutput);
+
+        //now, find anything that is both a dependency and has a dependency
+        for(Character c : projects){
+            //isadependency && hasadependency
+            if(isADependency(c) && hasADependency(c)) {
+                moreOutput.add(c);
+                itemsToRemove.add(c);
+            }
+
+        }
+        projects.removeAll(itemsToRemove);
+        itemsToRemove.clear();
+        //System.out.println("findDependencyOrder Projects: " + projects);
+        //System.out.println("moreOutput: " + moreOutput);
+
+        //now, find anything that has a dependency that is not a dependency
+        for(Character c : projects){
+            //!isadependency && hasadependency
+            if(!isADependency(c) && hasADependency(c)) {
+                moreOutput.add(c);
+                itemsToRemove.add(c);
+            }
+
+        }
+        projects.removeAll(itemsToRemove);
+        itemsToRemove.clear();
+
+
+
 
         return moreOutput;
     }
