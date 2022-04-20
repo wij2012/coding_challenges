@@ -17,17 +17,7 @@ public class Driver {
 
         ArrayList<Pair> dependencies = new ArrayList<>(Arrays.asList(p1, p2, p3, p4, p5));
         ArrayList<Character> output = new ArrayList<>();
-        //ArrayList<Character> itemsToRemove = new ArrayList<>();
         Solution solution = new Solution(dependencies);
-
-        //look for anything that neither has a dependency nor is a dependency
-        for(Character c : projects){
-            //if(!solution.hasOrIsADependency(c)){
-            if(solution.isADependency(c) == false && solution.hasADependency(c) == false){
-                output.add(c);
-            }
-        }
-        projects.removeAll(output);
 
         output.addAll(solution.findDependencyOrder(projects));
 
