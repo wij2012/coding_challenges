@@ -22,7 +22,8 @@ public class Driver {
 
         //look for anything that neither has a dependency nor is a dependency
         for(Character c : projects){
-            if(!solution.hasOrIsADependency(c)){
+            //if(!solution.hasOrIsADependency(c)){
+            if(solution.isADependency(c) == false && solution.hasADependency(c) == false){
                 output.add(c);
             }
         }

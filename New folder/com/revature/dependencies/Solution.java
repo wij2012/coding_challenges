@@ -30,7 +30,7 @@ public class Solution {
                 return true;
             }
         }
-        return true;
+        return false;
     }
 
     boolean hasADependency(Character project){
@@ -39,7 +39,7 @@ public class Solution {
                 return true;
             }
         }
-        return true;
+        return false;
     }
 
     ArrayList<Character> findDependencyOrder(ArrayList<Character> projects){
