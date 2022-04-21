@@ -29,7 +29,7 @@ public class Driver {
 
         output.addAll(solution.findDependencyOrder(projects));
 
-        System.out.println(projects);
+        //System.out.println(projects);
         System.out.println(output);
     }
 }
