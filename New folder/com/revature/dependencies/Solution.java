@@ -50,7 +50,7 @@ public class Solution {
         //first, find anything that has no dependency and is not a dependency
         for(Character c : projects){
             //!isadependency && !hasadependency
-            if(isADependency(c) == false && hasADependency(c) == false){
+            if(!isADependency(c) && !hasADependency(c)){
                 moreOutput.add(c);
             }
         }
